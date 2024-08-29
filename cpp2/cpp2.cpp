@@ -13,12 +13,12 @@ int main() {
 	int n;
 	cout << "Nhap 1 so ko bi cat chim : ";
 	cin >> n;
-
-	cout << "Cac so nguyen tu 1 den " << n << " la : ";
+	int maxPrime = 0;
 	for (int i = 2; i <= n; i++) {
 		if (isPrime(i)) {
-			cout << i << ",";
+			maxPrime = i;
 		}
 	}
+	cout << "Cac so nguyen to lon nhat be hon hoac bang " << n << " la : " << maxPrime;
 	return 0;
 }
