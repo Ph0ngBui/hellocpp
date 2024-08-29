@@ -1,20 +1,24 @@
-// cpp2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+bool isPrime(int n) {
+	if (n <= 1) return false;
+	if (n <= 3) return true;
+	if (n % 2 == 0 || n % 3 == 0) return false;
+	for (int i = 5; i * i <= n; i += 6) {
+		if (n % i == 0 || n % (i + 2) == 0) return false;
+	}
+	return true;
 }
+int main() {
+	int n;
+	cout << "Nhap 1 so ko bi cat chim : ";
+	cin >> n;
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+	cout << "Cac so nguyen tu 1 den " << n << " la : ";
+	for (int i = 2; i <= n; i++) {
+		if (isPrime(i)) {
+			cout << i << ",";
+		}
+	}
+	return 0;
+}
